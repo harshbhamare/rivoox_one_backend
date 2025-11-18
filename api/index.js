@@ -1,5 +1,10 @@
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config(); // Load api/.env automatically
+
+import express from "express";
+import cors from "cors";
+import dbCheck from "../middlewares/dbCheck.js";
+
 
 import express from "express";
 import cors from "cors";
@@ -21,7 +26,6 @@ app.get("/", (req, res) => {
   });
 });
 
-
 import studentRoutes from '../routes/students.js'
 import authRoutes from '../routes/auth.js'
 import directorRoutes from "../routes/director.js";
@@ -30,7 +34,6 @@ import classTeacherRoutes from "../routes/classTeacherRoutes.js"
 import facultyRoutes from "../routes/faculty.js"
 import defaulterRoutes from "../routes/defaulter.js"
 import submissionRoutes from "../routes/submissionRoute.js"
-
 
 app.use('/api/students', studentRoutes)
 app.use("/api/auth", authRoutes);
@@ -41,8 +44,6 @@ app.use("/api/faculty", facultyRoutes)
 app.use("/api/defaulter/", defaulterRoutes)
 app.use("/api/submissions/", submissionRoutes)
 
-// app.listen(process.env.PORT, () => {
-//   console.log(`Server running on port ${process.env.PORT}`);
-// });
-
-export default app;
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});
