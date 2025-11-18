@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config(); // Load api/.env automatically
+dotenv.config(); 
 
 import express from "express";
 import cors from "cors";
